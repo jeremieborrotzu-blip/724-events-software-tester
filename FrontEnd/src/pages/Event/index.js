@@ -38,7 +38,7 @@ const toLocal = (date) => {
         }
         getData()
     }, [])
-    const month = event ? new Intl.DateTimeFormat('fr-FR', { month: 'long'}).format(new Date(event.date)) : null
+    const month = event ? new Intl.DateTimeFormat('en-US', { month: 'long'}).format(new Date(event.date)) : null
     return <>
         <header>
             <Menu />
@@ -63,7 +63,7 @@ const toLocal = (date) => {
                         <h3>Location</h3>
                         <iframe
                             title="map"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3152.8137626462176!2d-122.4173534!3d37.7944041!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580f2960c5a5f%3A0xdfcd6cebc1ae9a35!2sSan%20Francisco%20Cable%20Car%20Museum!5e0!3m2!1sfr!2sec!4v1675261108657!5m2!1sfr!2sec"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3152.8137626462176!2d-122.4173534!3d37.7944041!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580f2960c5a5f%3A0xdfcd6cebc1ae9a35!2sSan%20Francisco%20Cable%20Car%20Museum!5e0!3m2!1sen!2sec!4v1675261108657!5m2!1sen!2sec"
                             width="400" height="300" style={{border:0}}  allowFullScreen="" loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade" />
                     </div>
@@ -72,7 +72,7 @@ const toLocal = (date) => {
                         <div>{event.nb_guest} participants</div>
                     </div>
                     <div className="Event__descriptionContainer">
-                        <h3>Prestations</h3>
+                        <h3>Services</h3>
                         {event.prestations.map((presta) => (
                             <div key={presta}>{presta}</div>
                         ))}
@@ -84,7 +84,7 @@ const toLocal = (date) => {
         }
         <footer className="row">
             <div className="col presta">
-                <h3>Notre derniére prestation</h3>
+                <h3>Our latest event</h3>
                 {last &&
                     <Modal key={last.id} Content={<ModalEvent event={last.id} />}>
                         {({ setIsOpened }) => (
@@ -100,7 +100,7 @@ const toLocal = (date) => {
                 }
             </div>
             <div className="col contact">
-                <h3>Contactez-nous</h3>
+                <h3>Contact us</h3>
                 <address>45 avenue de la République, 75000 Paris</address>
                 <div>01 23 45 67 89</div>
                 <div>contact@77events.com</div>
@@ -108,10 +108,10 @@ const toLocal = (date) => {
             <div className="col description">
                 <Logo size="large" />
                 <p>
-                    Une agence événementielle propose des prestations de service
-                    spécialisées dans la conception et l&apos;organisation de divers événements
-                    tels que des événements festifs, des manifestations sportives et
-                    culturelles, des événements professionnels
+                    An event agency offers specialized services
+                    in the design and organization of various events
+                    such as festive events, sporting and
+                    cultural events, professional events
                 </p>
             </div>
         </footer>
