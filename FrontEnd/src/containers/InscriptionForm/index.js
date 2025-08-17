@@ -40,7 +40,7 @@ const Form = ({ onSuccess, onError, date, id }) => {
             },
         });
         setSending(false);
-
+        onSuccess();
       } catch (err) {
         setSending(false);
         onError(err);
@@ -52,14 +52,14 @@ const Form = ({ onSuccess, onError, date, id }) => {
     <form onSubmit={sendContact}>
       <div className="row">
         <div className="col">
-          <Field placeholder="" label="Nom" />
-          <Field placeholder="" label="Prénom" />
+          <Field placeholder="" label="Name" />
+          <Field placeholder="" label="First name" />
           <label htmlFor="date">Date
           <input type="date" id="date" value={inscriptionDate} name="date" onChange={changeDate} />
           </label>
           <Field  label="Email" />
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
-            {sending ? "En cours" : "Envoyer"}
+            {sending ? "In progress" : "Register"}
           </Button>
         </div>
       </div>
