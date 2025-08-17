@@ -30,7 +30,7 @@ const Form = ({ onSuccess, onError }) => {
             },
         });
         setSending(false);
-
+        onSuccess();
       } catch (err) {
         setSending(false);
         onError(err);
@@ -42,18 +42,18 @@ const Form = ({ onSuccess, onError }) => {
     <form onSubmit={sendContact}>
       <div className="row">
         <div className="col">
-          <Field placeholder="" label="Nom" />
-          <Field placeholder="" label="Prénom" />
+          <Field placeholder="" label="Name" />
+          <Field placeholder="" label="First name" />
           <Select
-            selection={["Personnel", "Entreprise"]}
+            selection={["Personal", "Company"]}
             onChange={() => null}
-            label="Personnel / Entreprise"
+            label="Personal / Company"
             type="large"
             titleEmpty
           />
           <Field placeholder="" label="Email" />
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
-            {sending ? "En cours" : "Envoyer"}
+            {sending ? "In progress" : "Send"}
           </Button>
         </div>
         <div className="col">
